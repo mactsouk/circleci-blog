@@ -5,11 +5,13 @@ jobs:
       - image: debian
     steps:
       - checkout
-      - run: echo "Hello!"
+      - run: echo $CIRCLE_REPOSITORY_URL
       - run: uname -a
+      - run: pwd
+      - run: ls -l
 
 workflows:
   version: 2.1
-  build_and_test:
+  download_lenses_cli:
     jobs:
       - download
