@@ -5,6 +5,6 @@ orbs:
 workflows:
   welcome:
     jobs:
-      - echo "Testi"
-      - wget --version
-      - uname -a
+      - run: echo "Testi"
+      - run: wget --version
+      - run: uname -a
