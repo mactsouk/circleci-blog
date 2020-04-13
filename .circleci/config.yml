@@ -12,6 +12,7 @@ jobs:
       - run: echo $CIRCLE_REPOSITORY_URL
       - run: echo $USERNAME
       - run: echo $PASSWORD
+      - run: sudo apt install wget
       - run: wget --quiet https://github.com/lensesio/lenses-go/releases/download/3.1.0/lenses-cli-linux-386.tar.gz
       - run: tar xzvf lenses-cli-linux-386.tar.gz
       - run: mv lenses-cli-linux-386 lenses-cli
