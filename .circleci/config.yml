@@ -1,10 +1,15 @@
 version: 2.1
-
-orbs:
-  welcome: circleci/welcome-orb@0.4.1
-workflows:
-  welcome:
-    jobs:
-      - run: echo "Testi"
-      - run: wget --version
+jobs:
+  download:
+    docker:
+      - image: debian
+    steps:
+      - checkout
+      - run: echo "Hello!"
       - run: uname -a
+
+workflows:
+  version: 2.1
+  build_and_test:
+    jobs:
+      - download
