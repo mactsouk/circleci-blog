@@ -1,11 +1,12 @@
 version: 2.1
 jobs:
-  download:
+  query:
     docker:
       - image: debian
     environment:
       USERNAME: admin
       PASSWORD: admin
+      HOSTNAME: http://c5e67c84.ngrok.io
 
     steps:
       - checkout
@@ -17,10 +18,10 @@ jobs:
       - run: wget --quiet https://github.com/lensesio/lenses-go/releases/download/3.1.0/lenses-cli-linux-386.tar.gz
       - run: tar xzvf lenses-cli-linux-386.tar.gz
       - run: mv lenses-cli-linux-386 lenses-cli
-      - run: ./lenses-cli version
+      - run: ./lenses-cli --host $HOSTNAME  --user $USERNAME --pass $PASSWORD topics
 
 workflows:
   version: 2.1
   download_lenses_cli:
     jobs:
-      - download
+      - query
