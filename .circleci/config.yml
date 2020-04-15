@@ -5,8 +5,8 @@ jobs:
       - image: debian
     environment:
       USERNAME: service
-      TOKEN: admin
-      HOSTNAME: http://c5e67c84.ngrok.io
+      TOKEN: d569b956-e094-4888-b828-19660e75439b
+      HOSTNAME: http://4752aaf9.ngrok.io
 
     steps:
       - checkout
